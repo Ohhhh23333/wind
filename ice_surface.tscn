@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://boff487mrf452"]
+
+[ext_resource type="Script" uid="uid://cjvsctkgwi4sk" path="res://ice_surface.gd" id="1_o8epn"]
+
+[node name="ice_surface" type="Area2D" unique_id=277570933]
+script = ExtResource("1_o8epn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1075551967]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1847765177]

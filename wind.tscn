@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://xcngqj5y8q83"]
+
+[ext_resource type="Script" uid="uid://cf5fo2sfkq42v" path="res://wind.gd" id="1_p3bod"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(68, 278)
+
+[node name="Wind" type="Area2D" unique_id=139302271]
+script = ExtResource("1_p3bod")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2058163019]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=632836516]
+shape = SubResource("RectangleShape2D_yf5fn")

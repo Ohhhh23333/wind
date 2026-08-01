@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://ow0ry2vdwjiy"]
+
+[ext_resource type="Script" uid="uid://dnkmvntd8ttum" path="res://main.gd" id="1_74kyy"]
+[ext_resource type="Script" uid="uid://boe5ah7o60083" path="res://miancharacter.gd" id="2_kx2s4"]
+[ext_resource type="Texture2D" uid="uid://dycae6px0qwvd" path="res://Atester/Atester_stand.png" id="3_b5yu0"]
+[ext_resource type="Texture2D" uid="uid://cashn4se04k67" path="res://Atester/Atester_jump.png" id="3_kx2s4"]
+[ext_resource type="PackedScene" uid="uid://chhg41boskbqo" path="res://spike.tscn" id="5_b5yu0"]
+[ext_resource type="PackedScene" uid="uid://cg1wou6n87h67" path="res://ironbar.tscn" id="6_8ws1j"]
+[ext_resource type="PackedScene" uid="uid://dbo4bnoielhjb" path="res://wood.tscn" id="7_vfacy"]
+[ext_resource type="PackedScene" uid="uid://xcngqj5y8q83" path="res://wind.tscn" id="8_dey3m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(14, 36)
+
+[sub_resource type="Animation" id="Animation_b5yu0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_kx2s4")]
+}
+
+[sub_resource type="Animation" id="Animation_8ws1j"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_kx2s4")]
+}
+
+[sub_resource type="Animation" id="Animation_vfacy"]
+resource_name = "stand"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_b5yu0")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dey3m"]
+_data = {
+&"RESET": SubResource("Animation_b5yu0"),
+&"jump": SubResource("Animation_8ws1j"),
+&"stand": SubResource("Animation_vfacy")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(1152, 34)
+
+[node name="testlevel" type="Node2D" unique_id=570956274]
+script = ExtResource("1_74kyy")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=482626231 groups=["player"]]
+position = Vector2(38, 308)
+script = ExtResource("2_kx2s4")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=243017690]
+texture_filter = 1
+texture = ExtResource("3_kx2s4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1546166938]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=902568020]
+libraries/ = SubResource("AnimationLibrary_dey3m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=205603979]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=696220471]
+position = Vector2(576, 345)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Spike" parent="." unique_id=1242429714 instance=ExtResource("5_b5yu0")]
+position = Vector2(378, 328)
+
+[node name="ironbar" parent="." unique_id=2134148881 instance=ExtResource("6_8ws1j")]
+position = Vector2(117, 291)
+can_sleep = false
+
+[node name="wood" parent="." unique_id=1142862291 instance=ExtResource("7_vfacy")]
+position = Vector2(124, 244)
+
+[node name="Wind" parent="." unique_id=139302271 instance=ExtResource("8_dey3m")]
+position = Vector2(735, 259)
