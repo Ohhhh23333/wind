@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cg1wou6n87h67" path="res://ironbar.tscn" id="6_8ws1j"]
 [ext_resource type="PackedScene" uid="uid://dbo4bnoielhjb" path="res://wood.tscn" id="7_vfacy"]
 [ext_resource type="PackedScene" uid="uid://xcngqj5y8q83" path="res://wind.tscn" id="8_dey3m"]
+[ext_resource type="PackedScene" uid="uid://boff487mrf452" path="res://ice_surface.tscn" id="9_k8edd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(14, 36)
@@ -71,7 +72,7 @@ size = Vector2(1152, 34)
 script = ExtResource("1_74kyy")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=482626231 groups=["player"]]
-position = Vector2(38, 308)
+position = Vector2(60, 292)
 script = ExtResource("2_kx2s4")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=243017690]
@@ -90,15 +91,36 @@ libraries/ = SubResource("AnimationLibrary_dey3m")
 position = Vector2(576, 345)
 shape = SubResource("RectangleShape2D_yf5fn")
 
-[node name="Spike" parent="." unique_id=1242429714 instance=ExtResource("5_b5yu0")]
+[node name="Spike" parent="." unique_id=1242429714 groups=["spike"] instance=ExtResource("5_b5yu0")]
 position = Vector2(378, 328)
 
+[node name="Spike2" parent="." unique_id=1363830639 groups=["spike"] instance=ExtResource("5_b5yu0")]
+position = Vector2(362, 328)
+
 [node name="ironbar" parent="." unique_id=2134148881 instance=ExtResource("6_8ws1j")]
-position = Vector2(117, 291)
+position = Vector2(166, 295)
 can_sleep = false
 
 [node name="wood" parent="." unique_id=1142862291 instance=ExtResource("7_vfacy")]
-position = Vector2(124, 244)
+position = Vector2(166, 265)
 
 [node name="Wind" parent="." unique_id=139302271 instance=ExtResource("8_dey3m")]
-position = Vector2(735, 259)
+position = Vector2(542, 223)
+
+[node name="ice_surface" parent="." unique_id=277570933 instance=ExtResource("9_k8edd")]
+position = Vector2(668, 328)
+
+[node name="ice_surface2" parent="." unique_id=581469747 instance=ExtResource("9_k8edd")]
+position = Vector2(820, 328)
+
+[node name="ice_surface3" parent="." unique_id=405965751 instance=ExtResource("9_k8edd")]
+position = Vector2(706, 328)
+
+[node name="ice_surface4" parent="." unique_id=922955090 instance=ExtResource("9_k8edd")]
+position = Vector2(782, 328)
+
+[node name="ice_surface5" parent="." unique_id=128786413 instance=ExtResource("9_k8edd")]
+position = Vector2(744, 328)
+
+[node name="ice_surface6" parent="." unique_id=2080475082 instance=ExtResource("9_k8edd")]
+position = Vector2(858, 328)

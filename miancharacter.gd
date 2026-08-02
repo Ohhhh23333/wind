@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
+
 @onready var wind_velocity: Vector2 = Vector2.ZERO
 
 
@@ -14,9 +15,8 @@ func set_wind(direction: Vector2, force: float) -> void:
 	print("inwind")
 func clear_wind() -> void:
 	wind_velocity = Vector2.ZERO
-
-
 	print("outwind")
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
