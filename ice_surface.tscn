@@ -1,10 +1,20 @@
 [gd_scene format=3 uid="uid://boff487mrf452"]
 
 [ext_resource type="Script" uid="uid://cjvsctkgwi4sk" path="res://ice_surface.gd" id="1_o8epn"]
+[ext_resource type="Texture2D" uid="uid://ceqg87mttc4xd" path="res://Atester/ice_surface.png" id="2_dcjvk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0glv"]
+size = Vector2(9.5, 1)
 
 [node name="ice_surface" type="Area2D" unique_id=277570933]
+scale = Vector2(2, 2)
 script = ExtResource("1_o8epn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1075551967]
+texture_filter = 1
+texture = ExtResource("2_dcjvk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1847765177]
+position = Vector2(0.5, -1)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_i0glv")
