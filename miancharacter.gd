@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 		var collision := get_slide_collision(i)
 		var body := collision.get_collider()
 		if body is RigidBody2D:
-			body.apply_central_force(collision.get_normal() * -1000)
+			body.apply_central_force(collision.get_normal() * -1500)
 
 	#print("velocity: ", velocity)
 	#print("wind_velocity: ", wind_velocity)
