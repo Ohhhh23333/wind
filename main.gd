@@ -7,8 +7,11 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	spike.spike_hit.connect(_get_hit)
-	wind.item_in_wind.connect(_in_wind_item)
+
+	# 连接场景中所有刺（Spike、Spike2...）的 spike_hit 信号
+	for spike_node in get_tree().get_nodes_in_group("spike"):
+		spike_node.spike_hit.connect(_get_hit)
+	#wind.item_in_wind.connect(_in_wind_item)
 	#ice_surface.player_on_ice.connect(_on_player_on_ice)
 	#ice_surface.player_off_ice.connect(_on_player_off_ice)
 

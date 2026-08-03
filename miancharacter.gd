@@ -6,7 +6,8 @@ extends CharacterBody2D
 @onready var wind_velocity: Vector2 = Vector2.ZERO
 
 
-const SPEED = 150.0
+var SPEED = 840.0
+var MAX_SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
 #风吹
@@ -17,27 +18,44 @@ func clear_wind() -> void:
 	wind_velocity = Vector2.ZERO
 	print("outwind")
 
+#滑冰
+var flag = 0
+func set_ice() -> void:
+	SPEED = 420.0
+	MAX_SPEED = 300.0
+	flag += 1
+	print("flag: ", flag)
+	print("on ice")
+func clear_ice() -> void:
+	if flag <= 1:	
+		SPEED = 840.0
+		MAX_SPEED = 150.0
+		flag = 0
+		print("off ice")
+	else:
+		flag -= 1
+		print("still on ice")
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		animated_sprite.play("jump")
 	else:
 		animated_sprite.play("stand")
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		animated_sprite.play("jump")
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	
 	var direction := Input.get_axis("a", "d")
 	if direction:
-		velocity.x = direction * SPEED
+		var target_x : float = direction * MAX_SPEED
+		velocity.x = move_toward(velocity.x, target_x, SPEED * delta)
 		sprite.flip_h = direction < 0
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
 
 	velocity += wind_velocity * delta
 
@@ -48,3 +66,10 @@ func _physics_process(delta: float) -> void:
 		var body := collision.get_collider()
 		if body is RigidBody2D:
 			body.apply_central_force(collision.get_normal() * -1000)
+
+	#print("velocity: ", velocity)
+	#print("wind_velocity: ", wind_velocity)
+	#print("SPEED:", SPEED*delta, " MAX_SPEED:", MAX_SPEED)
+
+func _process(_delta: float) -> void:
+	pass

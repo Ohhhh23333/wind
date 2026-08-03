@@ -105,7 +105,7 @@ can_sleep = false
 position = Vector2(166, 265)
 
 [node name="Wind" parent="." unique_id=139302271 instance=ExtResource("8_dey3m")]
-position = Vector2(542, 223)
+position = Vector2(987, 221)
 
 [node name="ice_surface" parent="." unique_id=277570933 instance=ExtResource("9_k8edd")]
 position = Vector2(668, 328)
