@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var wind_velocity: Vector2 = Vector2.ZERO
 
 
-var SPEED = 840.0
+var SPEED = 1050.0
 var MAX_SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
@@ -21,14 +21,14 @@ func clear_wind() -> void:
 #滑冰
 var flag = 0
 func set_ice() -> void:
-	SPEED = 420.0
+	SPEED = 630.0
 	MAX_SPEED = 300.0
 	flag += 1
 	print("flag: ", flag)
 	print("on ice")
 func clear_ice() -> void:
 	if flag <= 1:	
-		SPEED = 840.0
+		SPEED = 1050.0
 		MAX_SPEED = 150.0
 		flag = 0
 		print("off ice")
@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, target_x, SPEED * delta)
 		sprite.flip_h = direction < 0
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
+		velocity.x = move_toward(velocity.x, 0, SPEED/2 * delta)
 
 	velocity += wind_velocity * delta
 
@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 		var collision := get_slide_collision(i)
 		var body := collision.get_collider()
 		if body is RigidBody2D:
-			body.apply_central_force(collision.get_normal() * -1500)
+			body.apply_central_force(collision.get_normal() * -2000)
 
 	#print("velocity: ", velocity)
 	#print("wind_velocity: ", wind_velocity)
