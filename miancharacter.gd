@@ -28,8 +28,6 @@ func set_ice() -> void:
 	print("on ice")
 func clear_ice() -> void:
 	if flag <= 1:	
-		SPEED = 1050.0
-		MAX_SPEED = 150.0
 		flag = 0
 		print("off ice")
 	else:
@@ -43,6 +41,9 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		animated_sprite.play("jump")
 	else:
+		if flag == 0:
+			SPEED = 1050.0
+			MAX_SPEED = 150.0
 		animated_sprite.play("stand")
 
 	# Handle jump.
