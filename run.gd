@@ -1,9 +1,13 @@
 extends State
 
+@export var player : CharacterBody2D
+@export var animated_sprite_2d : AnimatedSprite2D
 
 # Called when the state is entered.
 func _on_enter() -> void:
-	pass # Replace with function body.
+	if player.is_on_floor():
+		#跑步动画
+		pass
 
 # Called when the state is exited.
 func _on_exit() -> void:
@@ -11,7 +15,11 @@ func _on_exit() -> void:
 
 # Called when the state needs to transition to another state.
 func _on_transition() -> void:
-	pass # Replace with function body.
+	if Input.is_action_just_pressed("ui_accept"):
+		if player.is_on_floor():
+			emit_signal("transition", "jump")
+	elif !player.direction and player.is_on_floor():
+		emit_signal("transition", "idle")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_process(_delta: float) -> void:

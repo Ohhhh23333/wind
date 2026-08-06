@@ -68,20 +68,25 @@ _data = {
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=295158596 groups=["player"]]
 script = ExtResource("1_ghijl")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1762312565]
+[node name="StateMachine" type="Node" parent="." unique_id=1762312565 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_qp52p")
+initial_state = NodePath("idle")
 
-[node name="idle" type="Node" parent="StateMachine" unique_id=882166065]
+[node name="idle" type="Node" parent="StateMachine" unique_id=882166065 node_paths=PackedStringArray("player")]
 script = ExtResource("3_6ct3r")
+player = NodePath("../..")
 
-[node name="run" type="Node" parent="StateMachine" unique_id=2082877490]
+[node name="run" type="Node" parent="StateMachine" unique_id=2082877490 node_paths=PackedStringArray("player")]
 script = ExtResource("4_1kp85")
+player = NodePath("../..")
 
-[node name="jump" type="Node" parent="StateMachine" unique_id=471429847]
+[node name="jump" type="Node" parent="StateMachine" unique_id=471429847 node_paths=PackedStringArray("player")]
 script = ExtResource("5_qnedo")
+player = NodePath("../..")
 
-[node name="push" type="Node" parent="StateMachine" unique_id=1307733184]
+[node name="push" type="Node" parent="StateMachine" unique_id=1307733184 node_paths=PackedStringArray("player")]
 script = ExtResource("6_wyqjk")
+player = NodePath("../..")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=452514238]
 texture_filter = 1

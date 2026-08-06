@@ -1,5 +1,7 @@
 extends State
 
+@export var player: CharacterBody2D
+@export var animated_sprite_2d: AnimatedSprite2D
 
 # Called when the state is entered.
 func _on_enter() -> void:

@@ -11,8 +11,8 @@ var MAX_SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
 #风吹
-func set_wind(direction: Vector2, force: float) -> void:
-	wind_velocity = direction * force
+func set_wind(wind_direction: Vector2, force: float) -> void:
+	wind_velocity = wind_direction * force
 	print("inwind")
 func clear_wind() -> void:
 	wind_velocity = Vector2.ZERO
@@ -34,7 +34,7 @@ func clear_ice() -> void:
 		flag -= 1
 		print("still on ice")
 
-
+@onready var direction := 0.0
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -44,13 +44,9 @@ func _physics_process(delta: float) -> void:
 		if flag == 0:
 			SPEED = 1050.0
 			MAX_SPEED = 150.0
-		animated_sprite.play("stand")
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		animated_sprite.play("stand")#去掉就好，后面靠状态机，有分为走和停
 	
-	var direction := Input.get_axis("a", "d")
+	direction = Input.get_axis("a", "d")
 	if direction:
 		var target_x : float = direction * MAX_SPEED
 		velocity.x = move_toward(velocity.x, target_x, SPEED * delta)
@@ -62,6 +58,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+	#push
 	for i in get_slide_collision_count():
 		var collision := get_slide_collision(i)
 		var body := collision.get_collider()
