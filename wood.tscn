@@ -3,12 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://dwlhbo415vv5m" path="res://Atester/wood.png" id="1_fm5dc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gcmtl"]
-friction = 0.3
+friction = 0.6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ws1j"]
 size = Vector2(30, 30)
 
 [node name="wood" type="RigidBody2D" unique_id=1142862291]
+mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_gcmtl")
 can_sleep = false
 lock_rotation = true

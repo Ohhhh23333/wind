@@ -2,7 +2,7 @@ extends Area2D
 
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var wind_direction: Vector2 = Vector2(0, -1) #风向
-@onready var wind_force: float = 2000.0 #风力
+@onready var wind_force: float = 1500.0 #风力
 
 #signal item_in_wind
 #signal item_out_wind

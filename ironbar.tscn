@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://naeb1yi0plbo" path="res://Atester/Ironbar.png" id="1_68tnx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ws1j"]
-friction = 0.5
+friction = 0.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5yu0"]
 size = Vector2(12, 12)

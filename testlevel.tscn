@@ -1,69 +1,12 @@
 [gd_scene format=3 uid="uid://ow0ry2vdwjiy"]
 
 [ext_resource type="Script" uid="uid://dnkmvntd8ttum" path="res://main.gd" id="1_74kyy"]
-[ext_resource type="Script" uid="uid://boe5ah7o60083" path="res://miancharacter.gd" id="2_kx2s4"]
-[ext_resource type="Texture2D" uid="uid://dycae6px0qwvd" path="res://Atester/Atester_stand.png" id="3_b5yu0"]
-[ext_resource type="Texture2D" uid="uid://cashn4se04k67" path="res://Atester/Atester_jump.png" id="3_kx2s4"]
+[ext_resource type="PackedScene" uid="uid://dn28yqmmh1mkx" path="res://character_body_2d.tscn" id="2_vfacy"]
 [ext_resource type="PackedScene" uid="uid://chhg41boskbqo" path="res://spike.tscn" id="5_b5yu0"]
 [ext_resource type="PackedScene" uid="uid://cg1wou6n87h67" path="res://ironbar.tscn" id="6_8ws1j"]
 [ext_resource type="PackedScene" uid="uid://dbo4bnoielhjb" path="res://wood.tscn" id="7_vfacy"]
 [ext_resource type="PackedScene" uid="uid://xcngqj5y8q83" path="res://wind.tscn" id="8_dey3m"]
 [ext_resource type="PackedScene" uid="uid://boff487mrf452" path="res://ice_surface.tscn" id="9_k8edd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(14, 36)
-
-[sub_resource type="Animation" id="Animation_b5yu0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_kx2s4")]
-}
-
-[sub_resource type="Animation" id="Animation_8ws1j"]
-resource_name = "jump"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_kx2s4")]
-}
-
-[sub_resource type="Animation" id="Animation_vfacy"]
-resource_name = "stand"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_b5yu0")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dey3m"]
-_data = {
-&"RESET": SubResource("Animation_b5yu0"),
-&"jump": SubResource("Animation_8ws1j"),
-&"stand": SubResource("Animation_vfacy")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(1152, 34)
@@ -71,19 +14,10 @@ size = Vector2(1152, 34)
 [node name="testlevel" type="Node2D" unique_id=570956274]
 script = ExtResource("1_74kyy")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=482626231 groups=["player"]]
-position = Vector2(60, 292)
-script = ExtResource("2_kx2s4")
+[node name="CharacterBody2D" parent="." unique_id=295158596 instance=ExtResource("2_vfacy")]
+position = Vector2(62, 267)
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=243017690]
-texture_filter = 1
-texture = ExtResource("3_kx2s4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1546166938]
-shape = SubResource("RectangleShape2D_g4v7s")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=902568020]
-libraries/ = SubResource("AnimationLibrary_dey3m")
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=559498474]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=205603979]
 
