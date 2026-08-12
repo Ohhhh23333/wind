@@ -1,34 +1,48 @@
 [gd_scene format=3 uid="uid://xcngqj5y8q83"]
 
 [ext_resource type="Script" uid="uid://cf5fo2sfkq42v" path="res://wind.gd" id="1_p3bod"]
-[ext_resource type="Texture2D" uid="uid://da5u156dmu1m5" path="res://Atester/wind1.png" id="2_j8s6f"]
-[ext_resource type="Texture2D" uid="uid://xdfnwc5a7lc8" path="res://Atester/wind2.png" id="3_savvv"]
+[ext_resource type="Texture2D" uid="uid://o0fdpgk0ay8y" path="res://Atester/wind1_0001.png" id="2_dgf18"]
+[ext_resource type="Texture2D" uid="uid://d2v02xbnnnrmb" path="res://Atester/wind1_0002.png" id="3_bej4f"]
+[ext_resource type="Texture2D" uid="uid://sq0f2u3jbqc7" path="res://Atester/wind1_0003.png" id="4_nrn14"]
+[ext_resource type="Texture2D" uid="uid://dynm65klj0y0m" path="res://Atester/wind1_0004.png" id="5_wy7au"]
+[ext_resource type="Texture2D" uid="uid://vwf7hvjphodl" path="res://Atester/wind1_0005.png" id="6_04l14"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k85er"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_j8s6f")
+"texture": ExtResource("2_dgf18")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_savvv")
+"texture": ExtResource("3_bej4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nrn14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wy7au")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_04l14")
 }],
 "loop": 1,
-"name": &"new_animation",
-"speed": 5.0
+"name": &"wind_animation",
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(68, 278)
+size = Vector2(102, 399)
 
 [node name="Wind" type="Area2D" unique_id=139302271]
 script = ExtResource("1_p3bod")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2058163019]
+rotation = 1.5707964
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_k85er")
-animation = &"new_animation"
-frame = 1
-frame_progress = 0.22999227
+animation = &"wind_animation"
+autoplay = "wind_animation"
+frame_progress = 0.57070863
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=632836516]
 shape = SubResource("RectangleShape2D_yf5fn")

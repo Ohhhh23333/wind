@@ -8,7 +8,7 @@ friction = 0.3
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5yu0"]
 size = Vector2(12, 12)
 
-[node name="ironbar" type="RigidBody2D" unique_id=2134148881]
+[node name="ironbar" type="RigidBody2D" unique_id=2134148881 groups=["item"]]
 physics_material_override = SubResource("PhysicsMaterial_8ws1j")
 lock_rotation = true
 contact_monitor = true
