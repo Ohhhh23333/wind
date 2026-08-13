@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-@onready var animated_sprite: AnimationPlayer = $AnimationPlayer
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var wind_velocity: Vector2 = Vector2.ZERO
 
@@ -39,18 +38,20 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		animated_sprite.play("jump")
+		if velocity.y <= 0:
+			animated_sprite.play("jump")
+		else:
+			animated_sprite.play("fall")
 	else:
 		if flag == 0:
 			SPEED = 1050.0
 			MAX_SPEED = 150.0
-		animated_sprite.play("stand")#去掉就好，后面靠状态机，有分为走和停
 	
 	direction = Input.get_axis("a", "d")
 	if direction:
 		var target_x : float = direction * MAX_SPEED
 		velocity.x = move_toward(velocity.x, target_x, SPEED * delta)
-		sprite.flip_h = direction < 0
+		animated_sprite.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED/2 * delta)
 

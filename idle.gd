@@ -6,12 +6,12 @@ extends State
 # Called when the state is entered.
 func _on_enter() -> void:
 		if player.is_on_floor():
-			#空闲动画
-			pass
+			animated_sprite_2d.play("idle")
 
 # Called when the state is exited.
 func _on_exit() -> void:
-	pass # Replace with function body.
+	pass
+
 
 # Called when the state needs to transition to another state.
 func _on_transition() -> void:
@@ -26,4 +26,5 @@ func _on_process(_delta: float) -> void:
 	pass
 
 func _on_physics_process(_delta: float) -> void:
-	pass
+	if animated_sprite_2d.get_animation() != "idle" and player.is_on_floor():
+		animated_sprite_2d.play("idle")

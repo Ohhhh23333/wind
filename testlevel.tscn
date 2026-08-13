@@ -17,9 +17,11 @@ size = Vector2(1152, 34)
 script = ExtResource("1_74kyy")
 
 [node name="CharacterBody2D" parent="." unique_id=295158596 instance=ExtResource("2_vfacy")]
-position = Vector2(62, 267)
+position = Vector2(44, 304)
+scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=559498474]
+zoom = Vector2(3, 3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=205603979]
 
@@ -42,12 +44,13 @@ wind_area = NodePath("../Wind")
 
 [node name="wood" parent="." unique_id=1142862291 node_paths=PackedStringArray("wind_area") instance=ExtResource("7_vfacy")]
 position = Vector2(285, 312)
+linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("7_jbk63")
 wind_area = NodePath("../Wind")
 
 [node name="Wind" parent="." unique_id=139302271 instance=ExtResource("8_dey3m")]
-position = Vector2(284, 262)
+position = Vector2(230, 262)
 scale = Vector2(0.5, 0.5)
 
 [node name="ice_surface" parent="." unique_id=277570933 instance=ExtResource("9_k8edd")]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dbo4bnoielhjb"]
 
-[ext_resource type="Texture2D" uid="uid://dwlhbo415vv5m" path="res://Atester/wood.png" id="1_fm5dc"]
+[ext_resource type="Texture2D" uid="uid://dl72p6omot3xl" path="res://Atester/wood_block.png" id="1_fm5dc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gcmtl"]
 friction = 0.6
@@ -16,8 +16,8 @@ lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1921140158]
 texture_filter = 1
-position = Vector2(0, 4.7683716e-07)
-scale = Vector2(2.5, 2.5)
+position = Vector2(-2.3841858e-07, -2.3841858e-07)
+scale = Vector2(1.875, 1.875)
 texture = ExtResource("1_fm5dc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=449295236]
