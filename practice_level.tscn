@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://cm37pm6j5gjby" path="res://Atester/background2.png" id="1_upa42"]
 [ext_resource type="PackedScene" uid="uid://dn28yqmmh1mkx" path="res://character_body_2d.tscn" id="2_sjjaa"]
 [ext_resource type="PackedScene" uid="uid://byk0o42pthu4k" path="res://hole.tscn" id="5_7wtmn"]
+[ext_resource type="Script" uid="uid://bix6ng2ei31ke" path="res://bound.gd" id="6_ci3xk"]
+[ext_resource type="Script" uid="uid://o5ychjs5kd86" path="res://door.gd" id="7_aer3o"]
+[ext_resource type="PackedScene" uid="uid://c2skc12e8wnk7" path="res://reset.tscn" id="8_aer3o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjjaa"]
 texture = ExtResource("1_lafa7")
@@ -52,6 +55,12 @@ texture_region_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_sjjaa")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
+size = Vector2(896.30237, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
+radius = 31.12557
+
 [node name="practice level" type="Node2D" unique_id=1792223454]
 
 [node name="background" type="Sprite2D" parent="." unique_id=707088356]
@@ -76,3 +85,20 @@ tile_set = SubResource("TileSet_1m6c8")
 [node name="CharacterBody2D" parent="." unique_id=295158596 instance=ExtResource("2_sjjaa")]
 position = Vector2(43.801666, 548.76025)
 scale = Vector2(2, 2)
+
+[node name="Bound" type="Area2D" parent="." unique_id=1812830157]
+script = ExtResource("6_ci3xk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bound" unique_id=386758173]
+position = Vector2(567.83673, 658.08093)
+shape = SubResource("RectangleShape2D_3xd07")
+
+[node name="Door" type="Area2D" parent="." unique_id=1123033411]
+script = ExtResource("7_aer3o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=929265203]
+position = Vector2(1114.958, 110.26719)
+shape = SubResource("CircleShape2D_3xd07")
+
+[node name="Reset" parent="." unique_id=1651637458 instance=ExtResource("8_aer3o")]
+position = Vector2(0.6178627, 0.4107628)

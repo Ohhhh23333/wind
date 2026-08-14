@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://uf51fwxqv2p1" path="res://Atester/godot_cave_tileset_64px_v2.png.png" id="1_3hls8"]
 [ext_resource type="Texture2D" uid="uid://dum2iy3qob2i8" path="res://Atester/background.png" id="1_5hph3"]
-[ext_resource type="Script" uid="uid://cj477tsyf80l" path="res://level_1.gd" id="1_5rr72"]
 [ext_resource type="PackedScene" uid="uid://dn28yqmmh1mkx" path="res://character_body_2d.tscn" id="2_hbghi"]
 [ext_resource type="PackedScene" uid="uid://xcngqj5y8q83" path="res://wind.tscn" id="3_hn12h"]
 [ext_resource type="PackedScene" uid="uid://dbo4bnoielhjb" path="res://wood.tscn" id="4_ihfcg"]
 [ext_resource type="PackedScene" uid="uid://cg1wou6n87h67" path="res://ironbar.tscn" id="5_rka8t"]
 [ext_resource type="PackedScene" uid="uid://byk0o42pthu4k" path="res://hole.tscn" id="7_j7kpp"]
+[ext_resource type="PackedScene" uid="uid://c2skc12e8wnk7" path="res://reset.tscn" id="9_5rr72"]
 [ext_resource type="Script" uid="uid://dx8tm0xrjf214" path="res://area_2d.gd" id="9_gyffv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5hph3"]
@@ -59,7 +59,6 @@ sources/0 = SubResource("TileSetAtlasSource_5hph3")
 radius = 26.596275
 
 [node name="level1" type="Node2D" unique_id=467528928]
-script = ExtResource("1_5rr72")
 
 [node name="background" type="Sprite2D" parent="." unique_id=1786169053]
 position = Vector2(591.10754, 331.86905)
@@ -104,19 +103,22 @@ wind_force = 7000.0
 hole = NodePath("../hole3")
 metadata/_edit_lock_ = true
 
-[node name="CharacterBody2D" parent="." unique_id=295158596 instance=ExtResource("2_hbghi")]
-position = Vector2(42.920654, 552.04565)
-scale = Vector2(2, 2)
-
 [node name="wood" parent="." unique_id=1142862291 instance=ExtResource("4_ihfcg")]
 position = Vector2(346.3534, 304.66635)
 
 [node name="ironbar" parent="." unique_id=2134148881 instance=ExtResource("5_rka8t")]
 position = Vector2(345.66208, 224.69104)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1313229497]
+[node name="level_1_door" type="Area2D" parent="." unique_id=1313229497]
 script = ExtResource("9_gyffv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=913689971]
-position = Vector2(1111.222, 123.43361)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_1_door" unique_id=913689971]
+position = Vector2(1112.0703, 114.52756)
 shape = SubResource("CircleShape2D_3xd07")
+
+[node name="CharacterBody2D" parent="." unique_id=295158596 instance=ExtResource("2_hbghi")]
+position = Vector2(42.434875, 559.52234)
+scale = Vector2(2, 2)
+
+[node name="Reset" parent="." unique_id=1651637458 instance=ExtResource("9_5rr72")]
+position = Vector2(-22.480103, 650.72546)

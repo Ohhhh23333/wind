@@ -8,7 +8,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		get_tree().change_scene_to_file(
-			"res://game_over.tscn"
+			"res://level_1.tscn"
 		)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

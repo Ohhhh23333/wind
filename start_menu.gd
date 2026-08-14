@@ -1,11 +1,20 @@
-extends CanvasLayer
+extends Control
+
+@onready var start_button: Button = $CenterContainer/VBoxContainer/Start
+@onready var quit_button: Button = $CenterContainer/VBoxContainer/Quit
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	start_button.grab_focus()
+	start_button.pressed.connect(_on_start_button_pressed)
+	quit_button.pressed.connect(_on_quit_button_pressed)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_start_button_pressed() -> void:
+	get_tree().change_scene_to_file(
+		"res://practice_level.tscn"
+	)
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()

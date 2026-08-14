@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c2skc12e8wnk7"]
+
+[ext_resource type="Script" uid="uid://dho85d5aid5u4" path="res://reset.gd" id="1_d05gq"]
+
+[node name="Reset" type="Node2D" unique_id=1651637458]
+script = ExtResource("1_d05gq")
