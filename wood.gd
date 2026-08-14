@@ -1,6 +1,7 @@
 extends RigidBody2D
 
-@export var wind_area: Area2D
+var active_wind: Array[Area2D] = []
+
 
 @onready var is_in_wind := false
 
@@ -8,18 +9,21 @@ extends RigidBody2D
 func _ready() -> void:
 	pass
 
-func on_item_in_wind(body: Node) -> void:
+func on_item_in_wind(body: Node, wind_area: Area2D) -> void:
 	if body == self:
 		is_in_wind = true
+		active_wind.append(wind_area)
 
-func on_item_out_wind(body: Node) -> void:
+func on_item_out_wind(body: Node, wind_area: Area2D) -> void:
 	if body == self:
 		is_in_wind = false
+		active_wind.erase(wind_area)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if is_in_wind:
-		var wind_force = wind_area.wind_force
-		var wind_direction = wind_area.wind_direction
-		apply_central_force(wind_direction * wind_force * delta*20)
+	for wind_area in active_wind:		
+		if is_in_wind:
+			var wind_force = wind_area.wind_force
+			var wind_direction = wind_area.wind_direction
+			apply_central_force(wind_direction * wind_force * delta*20)

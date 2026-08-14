@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-
 @onready var wind_velocity: Vector2 = Vector2.ZERO
 
 
@@ -16,6 +15,15 @@ func set_wind(wind_direction: Vector2, force: float) -> void:
 func clear_wind() -> void:
 	wind_velocity = Vector2.ZERO
 	print("outwind")
+
+#被刺变白
+func on_spike_hit():
+	animated_sprite.material["shader_parameter/Enabled"] = true
+	print("spike hit")
+
+func clear_spike_hit():
+	animated_sprite.material["shader_parameter/Enabled"] = false
+	print("spike clear")
 
 #滑冰
 var flag = 0

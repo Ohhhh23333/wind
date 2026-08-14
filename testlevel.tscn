@@ -35,22 +35,20 @@ position = Vector2(378, 328)
 [node name="Spike2" parent="." unique_id=1363830639 groups=["spike"] instance=ExtResource("5_b5yu0")]
 position = Vector2(362, 328)
 
-[node name="ironbar" parent="." unique_id=2134148881 node_paths=PackedStringArray("wind_area") instance=ExtResource("6_8ws1j")]
+[node name="ironbar" parent="." unique_id=2134148881 instance=ExtResource("6_8ws1j")]
 position = Vector2(166, 295)
 can_sleep = false
 linear_damp = 2.0
 script = ExtResource("5_k8edd")
-wind_area = NodePath("../Wind")
 
-[node name="wood" parent="." unique_id=1142862291 node_paths=PackedStringArray("wind_area") instance=ExtResource("7_vfacy")]
-position = Vector2(285, 312)
+[node name="wood" parent="." unique_id=1142862291 instance=ExtResource("7_vfacy")]
+position = Vector2(165, 252)
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("7_jbk63")
-wind_area = NodePath("../Wind")
 
 [node name="Wind" parent="." unique_id=139302271 instance=ExtResource("8_dey3m")]
-position = Vector2(230, 262)
+position = Vector2(109, 264)
 scale = Vector2(0.5, 0.5)
 
 [node name="ice_surface" parent="." unique_id=277570933 instance=ExtResource("9_k8edd")]
@@ -72,3 +70,6 @@ position = Vector2(744, 328)
 position = Vector2(858, 328)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=27751507]
+
+[node name="Wind2" parent="." unique_id=594216890 instance=ExtResource("8_dey3m")]
+position = Vector2(269, 270)
