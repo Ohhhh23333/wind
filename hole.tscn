@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://byk0o42pthu4k"]
 
+[ext_resource type="Texture2D" uid="uid://cch6t8xh7qrg8" path="res://Atester/hole.png" id="1_ln22a"]
+
 [node name="Area2D" type="Area2D" unique_id=65867295]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=116896815]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=420689343]
+position = Vector2(-7.450581e-09, -7.450581e-09)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_ln22a")

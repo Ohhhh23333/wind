@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://dnkmvntd8ttum" path="res://main.gd" id="1_74kyy"]
 [ext_resource type="PackedScene" uid="uid://dn28yqmmh1mkx" path="res://character_body_2d.tscn" id="2_vfacy"]
 [ext_resource type="PackedScene" uid="uid://chhg41boskbqo" path="res://spike.tscn" id="5_b5yu0"]
-[ext_resource type="Script" uid="uid://bdjibdqr14bk8" path="res://ironbar.gd" id="5_k8edd"]
 [ext_resource type="PackedScene" uid="uid://cg1wou6n87h67" path="res://ironbar.tscn" id="6_8ws1j"]
-[ext_resource type="Script" uid="uid://ers43h0dm8lv" path="res://wood.gd" id="7_jbk63"]
 [ext_resource type="PackedScene" uid="uid://dbo4bnoielhjb" path="res://wood.tscn" id="7_vfacy"]
 [ext_resource type="PackedScene" uid="uid://xcngqj5y8q83" path="res://wind.tscn" id="8_dey3m"]
 [ext_resource type="PackedScene" uid="uid://boff487mrf452" path="res://ice_surface.tscn" id="9_k8edd"]
@@ -70,19 +68,15 @@ position = Vector2(378, 328)
 [node name="Spike2" parent="." unique_id=1363830639 groups=["spike"] instance=ExtResource("5_b5yu0")]
 position = Vector2(362, 328)
 
-[node name="ironbar" parent="." unique_id=2134148881 node_paths=PackedStringArray("wind_area") instance=ExtResource("6_8ws1j")]
+[node name="ironbar" parent="." unique_id=2134148881 instance=ExtResource("6_8ws1j")]
 position = Vector2(166, 295)
 can_sleep = false
 linear_damp = 2.0
-script = ExtResource("5_k8edd")
-wind_area = NodePath("../Wind")
 
-[node name="wood" parent="." unique_id=1142862291 node_paths=PackedStringArray("wind_area") instance=ExtResource("7_vfacy")]
+[node name="wood" parent="." unique_id=1142862291 instance=ExtResource("7_vfacy")]
 position = Vector2(285, 312)
 linear_damp = 2.0
 angular_damp = 2.0
-script = ExtResource("7_jbk63")
-wind_area = NodePath("../Wind")
 
 [node name="Wind" parent="." unique_id=139302271 instance=ExtResource("8_dey3m")]
 position = Vector2(230, 262)

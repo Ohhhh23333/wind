@@ -78,7 +78,7 @@ scale = Vector2(0.6, 2)
 wind_force = 7000.0
 
 [node name="CharacterBody2D" parent="." unique_id=295158596 instance=ExtResource("2_hbghi")]
-position = Vector2(259.92065, 301.04565)
+position = Vector2(42.920654, 552.04565)
 scale = Vector2(2, 2)
 
 [node name="wood" parent="." unique_id=1142862291 instance=ExtResource("4_ihfcg")]
