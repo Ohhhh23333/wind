@@ -17,6 +17,7 @@ func _ready() -> void:
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.transition.connect(transition_to)
+
 	
 	# 进入初始状态
 	if initial_state:

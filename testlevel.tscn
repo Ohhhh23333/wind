@@ -72,14 +72,16 @@ position = Vector2(362, 328)
 position = Vector2(166, 295)
 can_sleep = false
 linear_damp = 2.0
+script = ExtResource("5_k8edd")
 
 [node name="wood" parent="." unique_id=1142862291 instance=ExtResource("7_vfacy")]
-position = Vector2(285, 312)
+position = Vector2(165, 252)
 linear_damp = 2.0
 angular_damp = 2.0
+script = ExtResource("7_jbk63")
 
 [node name="Wind" parent="." unique_id=139302271 instance=ExtResource("8_dey3m")]
-position = Vector2(230, 262)
+position = Vector2(109, 264)
 scale = Vector2(0.5, 0.5)
 
 [node name="ice_surface" parent="." unique_id=277570933 instance=ExtResource("9_k8edd")]
@@ -101,5 +103,6 @@ position = Vector2(744, 328)
 position = Vector2(858, 328)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=27751507]
-tile_map_data = PackedByteArray("AAABABYAAAABAAAAAAAFABYAAAABAAAAAAAJABYAAAABAAAAAAANABYAAAABAAAAAAARABYAAAABAAAAAAAVABYAAAABAAAAAAABABoAAAAAAAAAAAAFABoAAAAAAAAAAAAJABoAAAAAAAAAAAANABoAAAAAAAAAAAARABoAAAAAAAAAAAAVABoAAAAAAAAAAAAZABYAAAABAAAAAAAZABoAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_7a7h8")
+
+[node name="Wind2" parent="." unique_id=594216890 instance=ExtResource("8_dey3m")]
+position = Vector2(269, 270)

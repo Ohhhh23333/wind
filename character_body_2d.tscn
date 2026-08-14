@@ -8,8 +8,15 @@
 [ext_resource type="Script" uid="uid://dddi5kveldoa1" path="res://push.gd" id="6_wyqjk"]
 [ext_resource type="Texture2D" uid="uid://dy51l4ws0n885" path="res://Atester/character/4_Cat_Fall-Sheet.png" id="7_1kp85"]
 [ext_resource type="Texture2D" uid="uid://c34pewa2oexy6" path="res://Atester/character/1_Cat_Idle-Sheet.png" id="7_4sjlk"]
+[ext_resource type="Shader" uid="uid://cuvasxmdlkbwi" path="res://character_body_2d.tres" id="7_qnedo"]
 [ext_resource type="Texture2D" uid="uid://bif2130krna5q" path="res://Atester/character/3_Cat_Jump-Sheet.png" id="8_6ct3r"]
 [ext_resource type="Texture2D" uid="uid://dtsvcrq0ckgcg" path="res://Atester/character/2_Cat_Run-Sheet.png" id="8_qp52p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1kp85"]
+resource_local_to_scene = true
+shader = ExtResource("7_qnedo")
+shader_parameter/Enabled = false
+shader_parameter/Hint = Color(18.892157, 18.892157, 18.892157, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oxcm1"]
 atlas = ExtResource("7_1kp85")
@@ -219,22 +226,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(14, 17)
 
-[sub_resource type="Animation" id="Animation_b5yu0"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_8ws1j"]
-resource_name = "jump"
-
-[sub_resource type="Animation" id="Animation_vfacy"]
-resource_name = "stand"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dey3m"]
-_data = {
-&"RESET": SubResource("Animation_b5yu0"),
-&"jump": SubResource("Animation_8ws1j"),
-&"stand": SubResource("Animation_vfacy")
-}
-
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=295158596 groups=["player"]]
 script = ExtResource("1_ghijl")
 
@@ -264,12 +255,11 @@ animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=720527082]
 texture_filter = 1
+material = SubResource("ShaderMaterial_1kp85")
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"run"
+animation = &"fall"
+frame_progress = 0.363913
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2089425881]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_yf5fn")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=853537923]
-libraries/ = SubResource("AnimationLibrary_dey3m")
