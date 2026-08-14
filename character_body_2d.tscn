@@ -213,7 +213,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"run",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
@@ -265,8 +265,7 @@ animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=720527082]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"fall"
-frame_progress = 0.40439627
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2089425881]
 position = Vector2(0, 3.5)

@@ -31,7 +31,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(102, 399)
+size = Vector2(102, 247.4375)
 
 [node name="Wind" type="Area2D" unique_id=139302271]
 script = ExtResource("1_p3bod")
@@ -42,7 +42,8 @@ scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_k85er")
 animation = &"wind_animation"
 autoplay = "wind_animation"
-frame_progress = 0.57070863
+frame = 2
+frame_progress = 0.834127
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=632836516]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=632836516 groups=["wind"]]
 shape = SubResource("RectangleShape2D_yf5fn")

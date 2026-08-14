@@ -1,0 +1,88 @@
+[gd_scene format=4 uid="uid://4t8tquiqelbx"]
+
+[ext_resource type="Texture2D" uid="uid://uf51fwxqv2p1" path="res://Atester/godot_cave_tileset_64px_v2.png.png" id="1_3hls8"]
+[ext_resource type="Texture2D" uid="uid://dum2iy3qob2i8" path="res://Atester/background.png" id="1_5hph3"]
+[ext_resource type="PackedScene" uid="uid://dn28yqmmh1mkx" path="res://character_body_2d.tscn" id="2_hbghi"]
+[ext_resource type="PackedScene" uid="uid://xcngqj5y8q83" path="res://wind.tscn" id="3_hn12h"]
+[ext_resource type="PackedScene" uid="uid://dbo4bnoielhjb" path="res://wood.tscn" id="4_ihfcg"]
+[ext_resource type="PackedScene" uid="uid://cg1wou6n87h67" path="res://ironbar.tscn" id="5_rka8t"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5hph3"]
+texture = ExtResource("1_3hls8")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -16, -32, -16)
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+7:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, 32, 32, 32, -32, 16, -32, 0, 16, -32, 16)
+0:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, 32, 32, 32, -32)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, 32, -32, 32)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 1.5, 32, 32, -32, 32, -32, 26.5, -12.5, 17.5)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.5, 2, 32, 2, 32, 32, -32, 32)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 32, -32, 32, -32, 2, 15, 22.5)
+0:3/0 = 0
+1:3/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+3:6/0 = 0
+2:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+4:6/0 = 0
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -16, -32, 4, 16, 32, 16, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_3xd07"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_5hph3")
+
+[node name="level1" type="Node2D" unique_id=467528928]
+
+[node name="background" type="Sprite2D" parent="." unique_id=1786169053]
+position = Vector2(591.10754, 331.86905)
+scale = Vector2(0.715893, 0.715893)
+texture = ExtResource("1_5hph3")
+metadata/_edit_lock_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1378583081]
+tile_map_data = PackedByteArray("AAABACYAAAABAAAAAAAFACYAAAABAAAAAAApACYAAAAAAAAAAAAtACYAAAAAAAAAAAAxACYAAAAAAAAAAAA1ACYAAAAAAAAAAAA5ACYAAAAAAAAAAABBACYAAAAAAAAAAABFACYAAAAAAAAAAABJACYAAAAAAAAAAAAJACoAAAABAAAAAAANACoAAAABAAAAAAARACYAAAAAAAAAAAAVACYAAAAAAAAAAAARACIAAAAAAAAAAAAVACIAAAAAAAAAAAARAB4AAAAAAAAAAAARABoAAAAAAAAAAAAVAB4AAAAAAAAAAAAVABoAAAAAAAAAAAARABYAAAABAAAAAAAVABYAAAABAAAAAAAhACIAAAAAAAAAAAAhACYAAAAAAAAAAAAZACoAAAABAAAAAAAdACoAAAABAAAAAAAhAB4AAAAAAAAAAAAlAB4AAAAAAAAAAAAlACIAAAAAAAAAAAAlACYAAAAAAAAAAAAhABoAAAABAAAAAAAlABoAAAABAAAAAAAhAA4AAAABAAAAADAlAA4AAAABAAAAADAlAAoAAAAAAAAAAAAhAAoAAAAAAAAAAAAhAAYAAAAAAAAAAAAhAAIAAAAAAAAAAAAlAAYAAAAAAAAAAAAlAAIAAAAAAAAAAAD9/wIAAAABAAAAAFD9/wYAAAABAAAAAFD9/woAAAABAAAAAFD9/w4AAAABAAAAAFD9/xIAAAABAAAAAFD9/xYAAAABAAAAAFD9/xoAAAABAAAAAFD9/x4AAAABAAAAAFD9/yIAAAABAAAAAFAhAP7/AAAAAAAAAAAlAP7/AAAAAAAAAAAdAP7/AAAAAAAAAAAZAP7/AAAAAAAAAAAVAP7/AAAAAAAAAAARAP7/AAAAAAAAAAANAP7/AAAAAAAAAAAJAP7/AAAAAAAAAAAFAP7/AAAAAAAAAAABAP7/AAAAAAAAAAApACIAAAAAAAAAAAAtACIAAAAAAAAAAAAxACIAAAAAAAAAAAA1ACIAAAAAAAAAAABBACIAAAAAAAAAAABFACIAAAAAAAAAAABJACIAAAAAAAAAAAApAB4AAAAAAAAAAAApAP7/AAAAAAAAAAAtAP7/AAAAAAAAAAAxAP7/AAAAAAAAAAA1AP7/AAAAAAAAAAA5AP7/AAAAAAAAAAA9AP7/AAAAAAAAAABBAP7/AAAAAAAAAABFAP7/AAAAAAAAAABJAB4AAAAAAAAAAABJABoAAAAAAAAAAABJABYAAAAAAAAAAABJABIAAAAAAAAAAABJAA4AAAAAAAAAAABJAAoAAAAAAAAAAABJAAYAAAAAAAAAAABJAAIAAAAAAAAAAAACACIAAAADAAcAAAAVABEAAAACAAAAAAApABoAAAAEAAIAAAAtAB4AAAABAAAAAAAxAB4AAAABAAAAAABFAB4AAAAAAAAAAABBAB4AAAAAAAAAAABFABoAAAAAAAAAAABBABoAAAAAAAAAAABBABYAAAAAAAAAAABFABYAAAAAAAAAAABBABIAAAAAAAAAAABFABIAAAAAAAAAAAApAAIAAAAAAAAAAAAtAAIAAAAAAAAAAAAxAAIAAAAAAAAAAAA1AAIAAAAAAAAAAABBAAIAAAAAAAAAAABFAAIAAAAAAAAAAAA9ACoAAAAAAAAAAABFAA4AAAAAAAAAAABBAA4AAAAAAAAAAABBAAoAAAABAAAAAABFAAoAAAABAAAAAABFAAYAAAAEAAcAAAA9AAIAAAAGAAIAADAdACYAAAACAAEAAAAZACYAAAAFAAEAAAApAAYAAAAAAAAAAAAtAAYAAAAAAAAAAAAxAAYAAAAAAAAAAAApAAoAAAAAAAAAAAA5AAIAAAAGAAIAADA5ACIAAAAAAAAAAAA1AB4AAAABAAAAAAA5AB4AAAABAAAAAAA=")
+tile_set = SubResource("TileSet_3xd07")
+
+[node name="Wind1" parent="." unique_id=139302271 instance=ExtResource("3_hn12h")]
+position = Vector2(182.90002, 524.5)
+scale = Vector2(1.2, 1)
+
+[node name="Wind2" parent="." unique_id=1499578821 instance=ExtResource("3_hn12h")]
+position = Vector2(439.22998, 301.4)
+scale = Vector2(1.2, 1.8)
+
+[node name="Wind3" parent="." unique_id=765977880 instance=ExtResource("3_hn12h")]
+position = Vector2(981.7989, 324.5566)
+scale = Vector2(0.6, 2)
+wind_force = 7000.0
+
+[node name="CharacterBody2D" parent="." unique_id=295158596 instance=ExtResource("2_hbghi")]
+position = Vector2(259.92065, 301.04565)
+scale = Vector2(2, 2)
+
+[node name="wood" parent="." unique_id=1142862291 instance=ExtResource("4_ihfcg")]
+position = Vector2(346.3534, 304.66635)
+
+[node name="ironbar" parent="." unique_id=2134148881 instance=ExtResource("5_rka8t")]
+position = Vector2(342.06998, 218.01999)

@@ -1,24 +1,26 @@
 [gd_scene format=3 uid="uid://cg1wou6n87h67"]
 
 [ext_resource type="Texture2D" uid="uid://cput33p4v7wx5" path="res://Atester/iron_block.png" id="1_68tnx"]
+[ext_resource type="Script" uid="uid://bdjibdqr14bk8" path="res://ironbar.gd" id="1_muevy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ws1j"]
 friction = 0.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5yu0"]
-size = Vector2(30, 30)
+size = Vector2(45.02625, 45.0512)
 
 [node name="ironbar" type="RigidBody2D" unique_id=2134148881 groups=["item"]]
 physics_material_override = SubResource("PhysicsMaterial_8ws1j")
-lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 2
+script = ExtResource("1_muevy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=502503742]
 texture_filter = 1
 position = Vector2(1.15484e-07, 7.785857e-07)
-scale = Vector2(1.8750001, 1.8750001)
+scale = Vector2(2.815, 2.815)
 texture = ExtResource("1_68tnx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=511096439]
+position = Vector2(-0.010313034, -0.009975433)
 shape = SubResource("RectangleShape2D_b5yu0")
