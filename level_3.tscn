@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dbo4bnoielhjb" path="res://wood.tscn" id="7_833wy"]
 [ext_resource type="PackedScene" uid="uid://boff487mrf452" path="res://ice_surface.tscn" id="8_7ds5r"]
 [ext_resource type="Script" uid="uid://4iqhpqgqi67t" path="res://level_3_door.gd" id="9_liaj6"]
+[ext_resource type="PackedScene" uid="uid://c2skc12e8wnk7" path="res://reset.tscn" id="12_833wy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1fhj5"]
 texture = ExtResource("1_ayd5w")
@@ -87,7 +88,7 @@ position = Vector2(503.00003, 628)
 rotation = 1.5707964
 scale = Vector2(0.6, 3)
 wind_direction = Vector2(1, 0)
-wind_force = 0.0
+wind_force = 700.0
 hole = NodePath("../hole")
 metadata/_edit_lock_ = true
 
@@ -217,3 +218,5 @@ script = ExtResource("9_liaj6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="level_3_door" unique_id=577182697]
 position = Vector2(81.5, -285.5)
 shape = SubResource("CircleShape2D_3xd07")
+
+[node name="Reset" parent="." unique_id=1651637458 instance=ExtResource("12_833wy")]
