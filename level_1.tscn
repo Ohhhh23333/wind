@@ -2,10 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://uf51fwxqv2p1" path="res://Atester/godot_cave_tileset_64px_v2.png.png" id="1_3hls8"]
 [ext_resource type="Texture2D" uid="uid://dum2iy3qob2i8" path="res://Atester/background.png" id="1_5hph3"]
+[ext_resource type="Script" uid="uid://cj477tsyf80l" path="res://level_1.gd" id="1_5rr72"]
 [ext_resource type="PackedScene" uid="uid://dn28yqmmh1mkx" path="res://character_body_2d.tscn" id="2_hbghi"]
 [ext_resource type="PackedScene" uid="uid://xcngqj5y8q83" path="res://wind.tscn" id="3_hn12h"]
 [ext_resource type="PackedScene" uid="uid://dbo4bnoielhjb" path="res://wood.tscn" id="4_ihfcg"]
 [ext_resource type="PackedScene" uid="uid://cg1wou6n87h67" path="res://ironbar.tscn" id="5_rka8t"]
+[ext_resource type="PackedScene" uid="uid://byk0o42pthu4k" path="res://hole.tscn" id="7_j7kpp"]
+[ext_resource type="Script" uid="uid://dx8tm0xrjf214" path="res://area_2d.gd" id="9_gyffv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5hph3"]
 texture = ExtResource("1_3hls8")
@@ -52,7 +55,11 @@ texture_region_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5hph3")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
+radius = 26.596275
+
 [node name="level1" type="Node2D" unique_id=467528928]
+script = ExtResource("1_5rr72")
 
 [node name="background" type="Sprite2D" parent="." unique_id=1786169053]
 position = Vector2(591.10754, 331.86905)
@@ -60,22 +67,42 @@ scale = Vector2(0.715893, 0.715893)
 texture = ExtResource("1_5hph3")
 metadata/_edit_lock_ = true
 
+[node name="hole" parent="." unique_id=65867295 instance=ExtResource("7_j7kpp")]
+position = Vector2(182.51178, 692.0838)
+scale = Vector2(3, 3)
+metadata/_edit_lock_ = true
+
+[node name="hole2" parent="." unique_id=2087620994 instance=ExtResource("7_j7kpp")]
+position = Vector2(439.7321, 603.0693)
+scale = Vector2(3, 3)
+metadata/_edit_lock_ = true
+
+[node name="hole3" parent="." unique_id=210670084 instance=ExtResource("7_j7kpp")]
+position = Vector2(981.45593, 687.1617)
+scale = Vector2(2, 2)
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1378583081]
 tile_map_data = PackedByteArray("AAABACYAAAABAAAAAAAFACYAAAABAAAAAAApACYAAAAAAAAAAAAtACYAAAAAAAAAAAAxACYAAAAAAAAAAAA1ACYAAAAAAAAAAAA5ACYAAAAAAAAAAABBACYAAAAAAAAAAABFACYAAAAAAAAAAABJACYAAAAAAAAAAAAJACoAAAABAAAAAAANACoAAAABAAAAAAARACYAAAAAAAAAAAAVACYAAAAAAAAAAAARACIAAAAAAAAAAAAVACIAAAAAAAAAAAARAB4AAAAAAAAAAAARABoAAAAAAAAAAAAVAB4AAAAAAAAAAAAVABoAAAAAAAAAAAARABYAAAABAAAAAAAVABYAAAABAAAAAAAhACIAAAAAAAAAAAAhACYAAAAAAAAAAAAZACoAAAABAAAAAAAdACoAAAABAAAAAAAhAB4AAAAAAAAAAAAlAB4AAAAAAAAAAAAlACIAAAAAAAAAAAAlACYAAAAAAAAAAAAhABoAAAABAAAAAAAlABoAAAABAAAAAAAhAA4AAAABAAAAADAlAA4AAAABAAAAADAlAAoAAAAAAAAAAAAhAAoAAAAAAAAAAAAhAAYAAAAAAAAAAAAhAAIAAAAAAAAAAAAlAAYAAAAAAAAAAAAlAAIAAAAAAAAAAAD9/wIAAAABAAAAAFD9/wYAAAABAAAAAFD9/woAAAABAAAAAFD9/w4AAAABAAAAAFD9/xIAAAABAAAAAFD9/xYAAAABAAAAAFD9/xoAAAABAAAAAFD9/x4AAAABAAAAAFD9/yIAAAABAAAAAFAhAP7/AAAAAAAAAAAlAP7/AAAAAAAAAAAdAP7/AAAAAAAAAAAZAP7/AAAAAAAAAAAVAP7/AAAAAAAAAAARAP7/AAAAAAAAAAANAP7/AAAAAAAAAAAJAP7/AAAAAAAAAAAFAP7/AAAAAAAAAAABAP7/AAAAAAAAAAApACIAAAAAAAAAAAAtACIAAAAAAAAAAAAxACIAAAAAAAAAAAA1ACIAAAAAAAAAAABBACIAAAAAAAAAAABFACIAAAAAAAAAAABJACIAAAAAAAAAAAApAB4AAAAAAAAAAAApAP7/AAAAAAAAAAAtAP7/AAAAAAAAAAAxAP7/AAAAAAAAAAA1AP7/AAAAAAAAAAA5AP7/AAAAAAAAAAA9AP7/AAAAAAAAAABBAP7/AAAAAAAAAABFAP7/AAAAAAAAAABJAB4AAAAAAAAAAABJABoAAAAAAAAAAABJABYAAAAAAAAAAABJABIAAAAAAAAAAABJAA4AAAAAAAAAAABJAAoAAAAAAAAAAABJAAYAAAAAAAAAAABJAAIAAAAAAAAAAAACACIAAAADAAcAAAAVABEAAAACAAAAAAApABoAAAAEAAIAAAAtAB4AAAABAAAAAAAxAB4AAAABAAAAAABFAB4AAAAAAAAAAABBAB4AAAAAAAAAAABFABoAAAAAAAAAAABBABoAAAAAAAAAAABBABYAAAAAAAAAAABFABYAAAAAAAAAAABBABIAAAAAAAAAAABFABIAAAAAAAAAAAApAAIAAAAAAAAAAAAtAAIAAAAAAAAAAAAxAAIAAAAAAAAAAAA1AAIAAAAAAAAAAABBAAIAAAAAAAAAAABFAAIAAAAAAAAAAAA9ACoAAAAAAAAAAABFAA4AAAAAAAAAAABBAA4AAAAAAAAAAABBAAoAAAABAAAAAABFAAoAAAABAAAAAABFAAYAAAAEAAcAAAA9AAIAAAAGAAIAADAdACYAAAACAAEAAAAZACYAAAAFAAEAAAApAAYAAAAAAAAAAAAtAAYAAAAAAAAAAAAxAAYAAAAAAAAAAAApAAoAAAAAAAAAAAA5AAIAAAAGAAIAADA5ACIAAAAAAAAAAAA1AB4AAAABAAAAAAA5AB4AAAABAAAAAAA=")
 tile_set = SubResource("TileSet_3xd07")
 
-[node name="Wind1" parent="." unique_id=139302271 instance=ExtResource("3_hn12h")]
+[node name="Wind1" parent="." unique_id=139302271 node_paths=PackedStringArray("hole") instance=ExtResource("3_hn12h")]
 position = Vector2(182.90002, 524.5)
 scale = Vector2(1.2, 1)
+hole = NodePath("../hole")
+metadata/_edit_lock_ = true
 
-[node name="Wind2" parent="." unique_id=1499578821 instance=ExtResource("3_hn12h")]
+[node name="Wind2" parent="." unique_id=1499578821 node_paths=PackedStringArray("hole") instance=ExtResource("3_hn12h")]
 position = Vector2(439.22998, 301.4)
 scale = Vector2(1.2, 1.8)
+hole = NodePath("../hole2")
+metadata/_edit_lock_ = true
 
-[node name="Wind3" parent="." unique_id=765977880 instance=ExtResource("3_hn12h")]
-position = Vector2(981.7989, 324.5566)
+[node name="Wind3" parent="." unique_id=765977880 node_paths=PackedStringArray("hole") instance=ExtResource("3_hn12h")]
+position = Vector2(985.1047, 304.87244)
 scale = Vector2(0.6, 2)
 wind_force = 7000.0
+hole = NodePath("../hole3")
+metadata/_edit_lock_ = true
 
 [node name="CharacterBody2D" parent="." unique_id=295158596 instance=ExtResource("2_hbghi")]
 position = Vector2(42.920654, 552.04565)
@@ -85,4 +112,11 @@ scale = Vector2(2, 2)
 position = Vector2(346.3534, 304.66635)
 
 [node name="ironbar" parent="." unique_id=2134148881 instance=ExtResource("5_rka8t")]
-position = Vector2(342.06998, 218.01999)
+position = Vector2(345.66208, 224.69104)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1313229497]
+script = ExtResource("9_gyffv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=913689971]
+position = Vector2(1111.222, 123.43361)
+shape = SubResource("CircleShape2D_3xd07")

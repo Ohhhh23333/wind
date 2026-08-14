@@ -19,11 +19,13 @@ func _ready() -> void:
 	animation_player.play("wind_animation")
 
 func _on_item_in_hole():
-	animation_player.set_deferred("disabled", true)
-	wind_collision.visible = false
+	animation_player.visible = false
+	wind_collision.set_deferred("disabled", true)
+	print("item in hole, wind disabled")
 func _on_item_out_hole():
-	animation_player.set_deferred("disabled", false)
-	wind_collision.visible = true
+	animation_player.visible = true
+	wind_collision.set_deferred("disabled", false)
+	print("item out hole, wind enabled")
 
 
 func _on_body_entered(body: Node) -> void:

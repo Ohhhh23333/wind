@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dgaipav4wwke"]
+
+[ext_resource type="Script" uid="uid://cruoldnejk8ud" path="res://game_over.gd" id="1_y26ei"]
+
+[node name="GameOver" type="CanvasLayer" unique_id=468258043]
+process_mode = 2
+layer = 10
+script = ExtResource("1_y26ei")
+
+[node name="Control" type="Control" parent="." unique_id=1308293634]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1852189235]
+layout_mode = 0
+offset_right = 1152.1377
+offset_bottom = 646.87506
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=1366743854]
+layout_mode = 0
+offset_right = 1151.6205
+offset_bottom = 646.83044
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer" unique_id=1820841062]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="GameOverLabel" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=1112948262]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Quit" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=1184775837]
+layout_mode = 2
+text = "QUIT"
+
+[node name="MainMenuButton" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=1424861283]
+layout_mode = 2
+text = "MainMenu"

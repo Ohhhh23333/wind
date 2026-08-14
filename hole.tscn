@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://byk0o42pthu4k"]
 
+[ext_resource type="Script" uid="uid://bjuodm73kcm28" path="res://hole.gd" id="1_1s0jb"]
 [ext_resource type="Texture2D" uid="uid://cch6t8xh7qrg8" path="res://Atester/hole.png" id="1_ln22a"]
 
-[node name="Area2D" type="Area2D" unique_id=65867295]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
+radius = 9.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=116896815]
+[node name="hole" type="Area2D" unique_id=65867295]
+script = ExtResource("1_1s0jb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=420689343]
-position = Vector2(-7.450581e-09, -7.450581e-09)
-scale = Vector2(0.02, 0.02)
+scale = Vector2(0.034198564, 0.034198564)
 texture = ExtResource("1_ln22a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=116896815]
+scale = Vector2(1.0783255, 1.0783255)
+shape = SubResource("CircleShape2D_3xd07")
