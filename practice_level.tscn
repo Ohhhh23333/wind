@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://o5ychjs5kd86" path="res://door.gd" id="7_aer3o"]
 [ext_resource type="PackedScene" uid="uid://c2skc12e8wnk7" path="res://reset.tscn" id="8_aer3o"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjjaa"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aer3o"]
 texture = ExtResource("1_lafa7")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -53,7 +53,7 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_1m6c8"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_sjjaa")
+sources/0 = SubResource("TileSetAtlasSource_aer3o")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
 size = Vector2(896.30237, 20)
@@ -83,7 +83,7 @@ tile_map_data = PackedByteArray("AAABACYAAAABAAAAAAAFACYAAAABAAAAAABBACYAAAAAAAA
 tile_set = SubResource("TileSet_1m6c8")
 
 [node name="CharacterBody2D" parent="." unique_id=295158596 instance=ExtResource("2_sjjaa")]
-position = Vector2(43.801666, 548.76025)
+position = Vector2(41.469147, 560.4229)
 scale = Vector2(2, 2)
 
 [node name="Bound" type="Area2D" parent="." unique_id=1812830157]

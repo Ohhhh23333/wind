@@ -7,11 +7,11 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("item"):
+	if body.is_in_group("item") and not body.is_in_group("wood"):
 		emit_signal("item_in_hole")
 
 func _on_body_exited(body: Node) -> void:
-	if body.is_in_group("item"):
+	if body.is_in_group("item") and not body.is_in_group("wood"):
 		emit_signal("item_out_hole")
 
 

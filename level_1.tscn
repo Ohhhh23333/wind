@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://4t8tquiqelbx"]
 
 [ext_resource type="Texture2D" uid="uid://uf51fwxqv2p1" path="res://Atester/godot_cave_tileset_64px_v2.png.png" id="1_3hls8"]
-[ext_resource type="Texture2D" uid="uid://dum2iy3qob2i8" path="res://Atester/background.png" id="1_5hph3"]
+[ext_resource type="Texture2D" uid="uid://nmptgql8r015" path="res://Atester/background1.png" id="1_5rr72"]
 [ext_resource type="PackedScene" uid="uid://dn28yqmmh1mkx" path="res://character_body_2d.tscn" id="2_hbghi"]
 [ext_resource type="PackedScene" uid="uid://xcngqj5y8q83" path="res://wind.tscn" id="3_hn12h"]
 [ext_resource type="PackedScene" uid="uid://dbo4bnoielhjb" path="res://wood.tscn" id="4_ihfcg"]
@@ -55,6 +55,10 @@ texture_region_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5hph3")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5rr72"]
+resource_local_to_scene = true
+friction = 0.1
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
 radius = 26.596275
 
@@ -63,7 +67,7 @@ radius = 26.596275
 [node name="background" type="Sprite2D" parent="." unique_id=1786169053]
 position = Vector2(591.10754, 331.86905)
 scale = Vector2(0.715893, 0.715893)
-texture = ExtResource("1_5hph3")
+texture = ExtResource("1_5rr72")
 metadata/_edit_lock_ = true
 
 [node name="hole" parent="." unique_id=65867295 instance=ExtResource("7_j7kpp")]
@@ -108,6 +112,7 @@ position = Vector2(346.3534, 304.66635)
 
 [node name="ironbar" parent="." unique_id=2134148881 instance=ExtResource("5_rka8t")]
 position = Vector2(345.66208, 224.69104)
+physics_material_override = SubResource("PhysicsMaterial_5rr72")
 
 [node name="level_1_door" type="Area2D" parent="." unique_id=1313229497]
 script = ExtResource("9_gyffv")

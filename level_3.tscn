@@ -1,0 +1,219 @@
+[gd_scene format=4 uid="uid://dkttvlxh4ppr5"]
+
+[ext_resource type="Texture2D" uid="uid://uf51fwxqv2p1" path="res://Atester/godot_cave_tileset_64px_v2.png.png" id="1_ayd5w"]
+[ext_resource type="Script" uid="uid://j1eocvluv1r6" path="res://level_3.gd" id="1_b60u5"]
+[ext_resource type="PackedScene" uid="uid://xcngqj5y8q83" path="res://wind.tscn" id="1_fmu3g"]
+[ext_resource type="Texture2D" uid="uid://c7io1472fl3bx" path="res://Atester/background3.png" id="2_kmy7e"]
+[ext_resource type="PackedScene" uid="uid://chhg41boskbqo" path="res://spike.tscn" id="3_7ds5r"]
+[ext_resource type="PackedScene" uid="uid://byk0o42pthu4k" path="res://hole.tscn" id="4_liaj6"]
+[ext_resource type="PackedScene" uid="uid://dn28yqmmh1mkx" path="res://character_body_2d.tscn" id="5_b60u5"]
+[ext_resource type="PackedScene" uid="uid://cg1wou6n87h67" path="res://ironbar.tscn" id="6_kmy7e"]
+[ext_resource type="PackedScene" uid="uid://dbo4bnoielhjb" path="res://wood.tscn" id="7_833wy"]
+[ext_resource type="PackedScene" uid="uid://boff487mrf452" path="res://ice_surface.tscn" id="8_7ds5r"]
+[ext_resource type="Script" uid="uid://4iqhpqgqi67t" path="res://level_3_door.gd" id="9_liaj6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1fhj5"]
+texture = ExtResource("1_ayd5w")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -16, -32, -16)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -16, -32, -16)
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+7:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, 32, 32, 32, -32, 16, -32, 0, 16, -32, 16)
+0:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, 32, 32, 32, -32)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, 32, -32, 32)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 1.5, 32, 32, -32, 32, -32, 26.5, -12.5, 17.5)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.5, 2, 32, 2, 32, 32, -32, 32)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 32, -32, 32, -32, 2, 15, 22.5)
+0:3/0 = 0
+1:3/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+3:6/0 = 0
+2:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+4:6/0 = 0
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -16, -32, 4, 16, 32, 16, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_16pka"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_1fhj5")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kmy7e"]
+resource_local_to_scene = true
+friction = 0.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
+
+[node name="level_3" type="Node2D" unique_id=22985134]
+script = ExtResource("1_b60u5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1999923011]
+position = Vector2(576, 391)
+scale = Vector2(0.8287293, 0.8287293)
+texture = ExtResource("2_kmy7e")
+metadata/_edit_lock_ = true
+
+[node name="hole" parent="." unique_id=65867295 instance=ExtResource("4_liaj6")]
+position = Vector2(92, 618)
+scale = Vector2(2, 2)
+
+[node name="hole2" parent="." unique_id=1508635847 instance=ExtResource("4_liaj6")]
+position = Vector2(959, 678)
+scale = Vector2(2, 2)
+
+[node name="Wind" parent="." unique_id=139302271 node_paths=PackedStringArray("hole") instance=ExtResource("1_fmu3g")]
+position = Vector2(503.00003, 628)
+rotation = 1.5707964
+scale = Vector2(0.6, 3)
+wind_direction = Vector2(1, 0)
+wind_force = 0.0
+hole = NodePath("../hole")
+metadata/_edit_lock_ = true
+
+[node name="Wind2" parent="." unique_id=128295958 node_paths=PackedStringArray("hole") instance=ExtResource("1_fmu3g")]
+position = Vector2(959.00006, 377)
+scale = Vector2(1.2, 2)
+hole = NodePath("../hole2")
+metadata/_edit_lock_ = true
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1647290617]
+tile_map_data = PackedByteArray("AAACAAoAAAABAAAAAAADAAoAAAABAAAAAAAEAAoAAAABAAAAAAAFAAoAAAABAAAAAAAGAAoAAAABAAAAAAAHAAoAAAABAAAAAAAIAAoAAAABAAAAAAAJAAoAAAABAAAAAAAKAAoAAAABAAAAAAALAAoAAAABAAAAAAAMAAoAAAABAAAAAAANAAoAAAABAAAAAAASAAkAAAAAAAAAAAASAAgAAAAAAAAAAAASAAcAAAAAAAAAAAASAAYAAAAAAAAAAAASAAUAAAAAAAAAAAASAAQAAAAAAAAAAAASAAMAAAAAAAAAAAASAAIAAAAAAAAAAAASAAEAAAAAAAAAAAASAAAAAAAAAAAAAAASAP//AAAAAAAAAAARAP//AAAAAAAAAAAQAP//AAAAAAAAAAAPAP//AAAAAAAAAAAOAP//AAAAAAAAAAANAP//AAAAAAAAAAAMAP//AAAAAAAAAAALAP//AAAAAAAAAAAKAP//AAAAAAAAAAAJAP//AAAAAAAAAAAIAP//AAAAAAAAAAAHAP//AAAAAAAAAAAGAP//AAAAAAAAAAAFAP//AAAAAAAAAAAEAP//AAAAAAAAAAADAP//AAAAAAAAAAACAP//AAAAAAAAAAABAP//AAAAAAAAAAAAAP//AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAD//wQAAAAAAAAAAAD//wUAAAAAAAAAAAD//wYAAAAAAAAAAAD//wcAAAAAAAAAAAD//wgAAAAAAAAAAAD//wkAAAAAAAAAAAD//woAAAAAAAAAAAAAAAoAAAAAAAAAAAABAAoAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAABAAcAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAMAAAABAAAAAAABAAMAAAABAAAAAAAAAAIAAAADAAcAAAABAAIAAAACAAAAAAAOAAoAAAAFAAEAAAAPAAoAAAACAAEAAAASAAoAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAARAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAPAAgAAAAGAAIAAAAOAAgAAAAGAAIAAAAQAAoAAAAAAAAAAAARAAoAAAAAAAAAAAAQAAcAAAAAAAAAAAARAAcAAAAAAAAAAAARAAYAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAUAAAAAAAAAAAARAAUAAAAAAAAAAAARAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAMAAAAAAAAAAAARAAMAAAAAAAAAAAAQAAIAAAABAAAAAAARAAIAAAABAAAAAAARAAEAAAAEAAcAAAA=")
+tile_set = SubResource("TileSet_16pka")
+metadata/_edit_lock_ = true
+
+[node name="Spike" parent="." unique_id=1242429714 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(146, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike2" parent="." unique_id=176525894 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(179, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike3" parent="." unique_id=2109534679 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(211, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike4" parent="." unique_id=682245113 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(243, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike5" parent="." unique_id=193091464 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(276, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike6" parent="." unique_id=1804413289 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(309, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike7" parent="." unique_id=1582602255 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(342, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike8" parent="." unique_id=1670053228 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(375, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike9" parent="." unique_id=1099307017 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(408, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike10" parent="." unique_id=515509785 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(441, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike11" parent="." unique_id=1262421846 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(474, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike12" parent="." unique_id=1067613825 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(508, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike13" parent="." unique_id=1869570011 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(541, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike14" parent="." unique_id=255470440 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(574, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike15" parent="." unique_id=813007363 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(607, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike16" parent="." unique_id=1744606236 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(640, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike17" parent="." unique_id=1422630161 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(673, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike18" parent="." unique_id=2009499459 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(706, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike19" parent="." unique_id=374181507 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(740, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike20" parent="." unique_id=14326397 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(773, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike21" parent="." unique_id=615512252 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(806, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike22" parent="." unique_id=1666060929 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(839, 639)
+scale = Vector2(2, 2)
+
+[node name="Spike23" parent="." unique_id=1678710236 groups=["spike"] instance=ExtResource("3_7ds5r")]
+position = Vector2(871, 639)
+scale = Vector2(2, 2)
+
+[node name="CharacterBody2D" parent="." unique_id=295158596 instance=ExtResource("5_b60u5")]
+position = Vector2(37, 171)
+scale = Vector2(2, 2)
+
+[node name="ironbar" parent="." unique_id=2134148881 instance=ExtResource("6_kmy7e")]
+position = Vector2(103, 169)
+physics_material_override = SubResource("PhysicsMaterial_kmy7e")
+
+[node name="wood" parent="." unique_id=1142862291 groups=["wood"] instance=ExtResource("7_833wy")]
+position = Vector2(103, 105)
+
+[node name="ice_surface" parent="." unique_id=277570933 instance=ExtResource("8_7ds5r")]
+position = Vector2(488, 645)
+scale = Vector2(40, 5)
+
+[node name="level_3_door" type="Area2D" parent="." unique_id=1988897034]
+position = Vector2(959, 678)
+scale = Vector2(2, 2)
+script = ExtResource("9_liaj6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_3_door" unique_id=577182697]
+position = Vector2(81.5, -285.5)
+shape = SubResource("CircleShape2D_3xd07")

@@ -5,12 +5,13 @@ extends Area2D
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
-func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("player"):
-		get_tree().change_scene_to_file(
-			"res://level_2.tscn"
+func _on_body_entered(body: Node):
+	get_tree().change_scene_to_file(
+			"res://level_3.tscn"
 		)
 
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	pass

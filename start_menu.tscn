@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://m6rjjs2prxew"]
 
 [ext_resource type="Script" uid="uid://bk8hg4aiershd" path="res://start_menu.gd" id="1_jwbto"]
+[ext_resource type="Texture2D" uid="uid://croghpgq3lxag" path="res://Atester/StartMenu.png" id="2_ctwoq"]
+[ext_resource type="PackedScene" uid="uid://dn28yqmmh1mkx" path="res://character_body_2d.tscn" id="2_ia0g5"]
+[ext_resource type="PackedScene" uid="uid://xcngqj5y8q83" path="res://wind.tscn" id="3_v2mkm"]
+[ext_resource type="PackedScene" uid="uid://byk0o42pthu4k" path="res://hole.tscn" id="4_ctwoq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xd07"]
+size = Vector2(1152, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2mkm"]
+size = Vector2(15.5, 647)
 
 [node name="StartMenu" type="Control" unique_id=1308293634]
 layout_mode = 3
@@ -9,27 +19,91 @@ offset_right = 1152.0
 offset_bottom = 647.0
 script = ExtResource("1_jwbto")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1852189235]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=938757844]
 layout_mode = 0
-offset_right = 1152.1377
-offset_bottom = 646.87506
+offset_right = 1153.1647
+offset_bottom = 649.0
+texture = ExtResource("2_ctwoq")
+expand_mode = 1
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1038391925]
+
+[node name="hole" parent="Node2D" unique_id=65867295 instance=ExtResource("4_ctwoq")]
+position = Vector2(595, 768)
+
+[node name="CharacterBody2D" parent="Node2D" unique_id=295158596 instance=ExtResource("2_ia0g5")]
+position = Vector2(214, 255)
+scale = Vector2(4, 4)
+
+[node name="Wind2" parent="Node2D" unique_id=139302271 node_paths=PackedStringArray("hole") instance=ExtResource("3_v2mkm")]
+position = Vector2(228.00002, 462)
+scale = Vector2(1.5, 1.5)
+hole = NodePath("../hole")
+
+[node name="Wind" parent="Node2D" unique_id=921033811 node_paths=PackedStringArray("hole") instance=ExtResource("3_v2mkm")]
+position = Vector2(74, 462)
+scale = Vector2(1.5, 1.5)
+hole = NodePath("../hole")
+
+[node name="Wind3" parent="Node2D" unique_id=295591451 node_paths=PackedStringArray("hole") instance=ExtResource("3_v2mkm")]
+position = Vector2(382, 462)
+scale = Vector2(1.5, 1.5)
+hole = NodePath("../hole")
+
+[node name="Wind4" parent="Node2D" unique_id=1515252200 node_paths=PackedStringArray("hole") instance=ExtResource("3_v2mkm")]
+position = Vector2(536, 462.00003)
+scale = Vector2(1.5, 1.5)
+hole = NodePath("../hole")
+
+[node name="Wind5" parent="Node2D" unique_id=516195478 node_paths=PackedStringArray("hole") instance=ExtResource("3_v2mkm")]
+position = Vector2(690, 462)
+scale = Vector2(1.5, 1.5)
+hole = NodePath("../hole")
+
+[node name="Wind6" parent="Node2D" unique_id=352466365 node_paths=PackedStringArray("hole") instance=ExtResource("3_v2mkm")]
+position = Vector2(844, 462.00003)
+scale = Vector2(1.5, 1.5)
+hole = NodePath("../hole")
+
+[node name="Wind7" parent="Node2D" unique_id=1696891046 node_paths=PackedStringArray("hole") instance=ExtResource("3_v2mkm")]
+position = Vector2(998.00006, 462)
+scale = Vector2(1.5, 1.5)
+hole = NodePath("../hole")
+
+[node name="Wind8" parent="Node2D" unique_id=1122681955 node_paths=PackedStringArray("hole") instance=ExtResource("3_v2mkm")]
+position = Vector2(1152, 462)
+scale = Vector2(1.5, 1.5)
+hole = NodePath("../hole")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D" unique_id=2090780440]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D" unique_id=249306201]
+position = Vector2(576, 657)
+shape = SubResource("RectangleShape2D_3xd07")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Node2D" unique_id=768024268]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D2" unique_id=718388602]
+position = Vector2(-8, 323.5)
+shape = SubResource("RectangleShape2D_v2mkm")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Node2D" unique_id=222093714]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D3" unique_id=517375527]
+position = Vector2(1160, 323.5)
+shape = SubResource("RectangleShape2D_v2mkm")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1366743854]
 layout_mode = 0
+offset_top = 145.37
 offset_right = 1151.6205
-offset_bottom = 646.83044
+offset_bottom = 792.20044
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1820841062]
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
-
-[node name="GameOverLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1112948262]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "疯子猫"
-horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1184775837]
 layout_mode = 2

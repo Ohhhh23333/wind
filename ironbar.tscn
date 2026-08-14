@@ -4,12 +4,14 @@
 [ext_resource type="Script" uid="uid://bdjibdqr14bk8" path="res://ironbar.gd" id="1_muevy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8ws1j"]
-friction = 0.3
+resource_local_to_scene = true
+friction = 0.1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5yu0"]
 size = Vector2(45.02625, 45.0512)
 
 [node name="ironbar" type="RigidBody2D" unique_id=2134148881 groups=["item"]]
+mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_8ws1j")
 contact_monitor = true
 max_contacts_reported = 2

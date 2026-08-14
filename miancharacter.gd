@@ -31,15 +31,15 @@ func set_ice() -> void:
 	SPEED = 630.0
 	MAX_SPEED = 300.0
 	flag += 1
-	print("flag: ", flag)
-	print("on ice")
+	#print("flag: ", flag)
+	#print("on ice")
 func clear_ice() -> void:
 	if flag <= 1:	
 		flag = 0
-		print("off ice")
+		#print("off ice")
 	else:
 		flag -= 1
-		print("still on ice")
+		#print("still on ice")
 
 @onready var direction := 0.0
 func _physics_process(delta: float) -> void:
